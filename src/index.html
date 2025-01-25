@@ -132,30 +132,30 @@
 
         <!-- Slider -->
         <div class="glazing_slider">
-          <div class="glazing_block text-center wow fadeInUp">
+          <div data-glazing="tree" class="glazing_block text-center wow fadeInUp">
             <img src="assets/img/glazing/icons/1.png" alt="#">
-            <a class="tree_link">Деревянное <br>остекление</a>
+            <a data-glazing="tree" class="tree_link active">Деревянное <br>остекление</a>
           </div>
-          <div class="glazing_block text-center wow fadeInUp" data-wow-delay="0.1s">
+          <div data-glazing="aluminum" class="glazing_block text-center wow fadeInUp" data-wow-delay="0.1s">
             <img src="assets/img/glazing/icons/2.png" alt="#">
-            <a class="aluminum_link">Алюминиевое <br>остекление</a>
+            <a data-glazing="aluminum" class="aluminum_link">Алюминиевое <br>остекление</a>
           </div>
-          <div class="glazing_block text-center wow fadeInUp" data-wow-delay="0.2s">
+          <div data-glazing="plastic" class="glazing_block text-center wow fadeInUp" data-wow-delay="0.2s">
             <img src="assets/img/glazing/icons/3.png" alt="#">
-            <a class="plastic_link">Остекление <br>пластиковыми <br>рамами</a>
+            <a data-glazing="plastic" class="plastic_link">Остекление <br>пластиковыми <br>рамами</a>
           </div>
-          <div class="glazing_block text-center wow fadeInUp" data-wow-delay="0.3s">
+          <div data-glazing="french" class="glazing_block text-center wow fadeInUp" data-wow-delay="0.3s">
             <img src="assets/img/glazing/icons/4.png" alt="#">
-            <a class="french_link">Французское <br>остекление <br>(панорамное)</a>
+            <a data-glazing="french" class="french_link">Французское <br>остекление <br>(панорамное)</a>
           </div>
-          <div class="glazing_block text-center wow fadeInUp" data-wow-delay="0.4s">
+          <div data-glazing="rise" class="glazing_block text-center wow fadeInUp" data-wow-delay="0.4s">
             <img src="assets/img/glazing/icons/5.png" alt="#">
-            <a class="rise_link">Остекление <br>с выносом</a>
+            <a data-glazing="rise" class="rise_link">Остекление <br>с выносом</a>
           </div>
         </div>
 
         <!-- Tree -->
-        <div class="row tree glazing_content">
+        <div data-glazing="tree" class="row tree glazing_content">
 
           <div class="col-md-6 no-padding">
            <div class="glazing_cold">
@@ -170,7 +170,7 @@
            </div> 
             <div class="glazing_price">
                 <p>2600 руб.кв.м.<br><span>под ключ с установкой</span></p>
-                <button class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
+                <button data-season="cold" class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
             </div>
           </div>
 
@@ -187,14 +187,14 @@
             </div> 
              <div class="glazing_price">
                  <p>4000 руб.кв.м.<br><span>под ключ с установкой</span></p>
-                 <button class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
+                 <button data-season="warm" class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
              </div>
           </div>
 
         </div> <!-- /Tree -->
 
         <!-- Aluminum -->
-        <div class="row aluminum glazing_content">
+        <div data-glazing="aluminum" class="row aluminum glazing_content">
 
           <div class="col-md-6 no-padding">
            <div class="glazing_cold">
@@ -209,7 +209,7 @@
            </div> 
             <div class="glazing_price">
                 <p>4000 руб.кв.м.<br><span>под ключ с установкой</span></p>
-                <button class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
+                <button data-season="cold" class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
             </div>
           </div>
 
@@ -226,14 +226,14 @@
             </div> 
              <div class="glazing_price">
                  <p>8000 руб.кв.м.<br><span>под ключ с установкой</span></p>
-                 <button class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
+                 <button data-season="warm" class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
              </div>
           </div>
 
         </div> <!-- /Aluminum -->
 
         <!-- Plastic -->
-        <div class="row plastic glazing_content">
+        <div data-glazing="plastic" class="row plastic glazing_content">
 
           <div class="col-md-6 col-md-offset-3 no-padding">
             <div class="glazing_warm">
@@ -248,14 +248,14 @@
             </div> 
              <div class="glazing_price">
                  <p>5500 руб.кв.м.<br><span>под ключ с установкой</span></p>
-                 <button class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
+                 <button data-season="warm" class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
              </div>
           </div>
 
         </div> <!-- /Plastic -->
 
         <!-- French -->
-        <div class="row french glazing_content">
+        <div data-glazing="french" class="row french glazing_content">
 
           <div class="col-md-6 no-padding">
            <div class="glazing_cold">
@@ -270,7 +270,7 @@
            </div> 
             <div class="glazing_price">
                 <p>5500 руб.кв.м.<br><span>под ключ с установкой</span></p>
-                <button class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
+                <button data-season="cold" class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
             </div>
           </div>
 
@@ -287,14 +287,14 @@
             </div> 
              <div class="glazing_price">
                  <p>8000 руб.кв.м.<br><span>под ключ с установкой</span></p>
-                 <button class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
+                 <button data-season="warm" class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
              </div>
           </div>
 
         </div> <!-- /French -->
 
         <!-- Rise -->
-        <div class="row rise glazing_content">
+        <div data-glazing="rise" class="row rise glazing_content">
 
           <div class="col-md-6 no-padding">
            <div class="glazing_cold">
@@ -309,7 +309,7 @@
            </div> 
             <div class="glazing_price">
                 <p>4000 руб.кв.м.<br><span>под ключ с установкой</span></p>
-                <button class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
+                <button data-season="cold" class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
             </div>
           </div>
 
@@ -326,7 +326,7 @@
             </div> 
              <div class="glazing_price">
                  <p>8000 руб.кв.м.<br><span>под ключ с установкой</span></p>
-                 <button class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
+                 <button data-season="warm" class="button glazing_price_btn text-uppercase popup_calc_btn">Рассчитать стоимость</button>
              </div>
           </div>
 
@@ -839,31 +839,31 @@
    <div class="popup_calc">
         <div class="popup_dialog">
             <div class="popup_calc_content text-center">
-                <button type="button" class="popup_calc_close"><strong>&times;</strong></button>
+                <button type="button" class="popup_close"><strong>&times;</strong></button>
                  <h2>Калькулятор</h2>
                 <h3>Выберите форму балкона <br>и укажите размеры</h3>
                 <div class="balcon_icons">
                     <span class="balcon_icons_img do_image_more">
-                      <img src="assets/img/modal_calc/balkon/ba_01.png" alt="Тип1"></span>
+                      <img class="balcon_icons_scale" data-type="1" src="assets/img/modal_calc/balkon/ba_01.png" alt="Тип1"></span>
                     <span class="balcon_icons_img">
-                      <img src="assets/img/modal_calc/balkon/ba_02.png" alt="Тип2"></span>
+                      <img data-type="2" src="assets/img/modal_calc/balkon/ba_02.png" alt="Тип2"></span>
                     <span class="balcon_icons_img">
-                      <img src="assets/img/modal_calc/balkon/ba_03.png" alt="Тип3"></span>
+                      <img data-type="3" src="assets/img/modal_calc/balkon/ba_03.png" alt="Тип3"></span>
                     <span class="balcon_icons_img"> 
-                      <img src="assets/img/modal_calc/balkon/ba_04.png" alt="Тип4"></span>
+                      <img data-type="4" src="assets/img/modal_calc/balkon/ba_04.png" alt="Тип4"></span>
                   </div>
                    <div class="big_img text-center">
-                     <img src="assets/img/modal_calc/balkon/type1.png" alt="Тип1">
-                     <img src="assets/img/modal_calc/balkon/type2.png" alt="Тип2">
-                     <img src="assets/img/modal_calc/balkon/type3.png" alt="Тип3">
-                     <img src="assets/img/modal_calc/balkon/type4.png" alt="Тип4">
+                     <img data-type="1" src="assets/img/modal_calc/balkon/type1.png" alt="Тип1">
+                     <img data-type="2" src="assets/img/modal_calc/balkon/type2.png" alt="Тип2">
+                     <img data-type="3" src="assets/img/modal_calc/balkon/type3.png" alt="Тип3">
+                     <img data-type="4" src="assets/img/modal_calc/balkon/type4.png" alt="Тип4">
                    </div>
-                <input class="form-control" id="width" type="text" placeholder="Ширина" required>
+                <input data-input="width" class="form-control" id="width" type="text" placeholder="Ширина" required>
                 <label for="width">мм</label>
                 <div class="multiplication"><strong>&times;</strong></div>
-                <input class="form-control" id="height" type="text" placeholder="Высота" required>
+                <input data-input="height" class="form-control" id="height" type="text" placeholder="Высота" required>
                 <label for="height">мм</label>
-                <button class="button popup_calc_button">Далее</button>
+                <button  class="button popup_calc_button" >Далее</button>
             </div>
         </div>
     </div> 
@@ -871,7 +871,7 @@
    <div class="popup_calc_profile">
         <div class="popup_dialog">
             <div class="popup_calc_profile_content text-center">
-                <button type="button" class="popup_calc_profile_close"><strong>&times;</strong></button>
+                <button type="button" class="popup_close"><strong>&times;</strong></button>
                  <h2>Калькулятор</h2>
                  <h3>Выберите тип остекления <br>и его профиль</h3>
                  <select class="form-control" name="view" id="view_type">
@@ -879,7 +879,7 @@
                    <option value="aluminum">Алюминиевое остекление</option>
                    <option value="plastic">Остекление пластиковыми рамами</option>
                    <option value="french">Панорамное остекление</option>
-                   <option value="overhang">Остекление с выносом</option>
+                   <option value="rise">Остекление с выносом</option>
                  </select>
                  <img src="assets/img/modal_calc/icon_cold.png" alt="">
                  <label>
@@ -902,13 +902,13 @@
     <div class="popup_calc_end">
         <div class="popup_dialog">
             <div class="popup_content text-center">
-                <button type="button" class="popup_calc_end_close"><strong>&times;</strong></button>
+                <button type="button" class="popup_close"><strong>&times;</strong></button>
                 <div class="popup_form">
                     <form class="form" action="#">
                       <h2>Спасибо за обращение! <br>Оставьте свои данные</h2>
-                        <input class="form-control form_input" name="user_name" required type="text" placeholder="Введите ваше имя">
-                        <input class="form-control form_input" name="user_phone" required type="text" placeholder="Введите телефон">
-                        <button class="text-uppercase btn-block button" name="submit" type="submit">Рассчитать стоимость</button>
+                        <input class="form-control form_input end-input-name" name="name" required type="text" placeholder="Введите ваше имя">
+                        <input class="form-control form_input end-input-phone" name="phone" required type="text" placeholder="Введите телефон">
+                        <button class="text-uppercase btn-block button popup_calc_btn-form" name="submit" type="submit">Рассчитать стоимость</button>
                         <p class="form_notice">Перезвоним в течение 10 минут</p>
                     </form>
                 </div>

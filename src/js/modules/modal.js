@@ -5,6 +5,7 @@ export default function modal() {
         const trigger = document.querySelectorAll(triggerSelector)
         const modal = document.querySelector(modalSelector)
 
+
         function closeModal() {
 
             document.body.style.overflow = ''
@@ -18,13 +19,16 @@ export default function modal() {
         trigger.forEach(item => {
 
             item.addEventListener('click', (e) => {
-                e.preventDefault()
+                if(!item.disabled) {
+                    e.preventDefault()
+    
+                    document.body.style.overflow = 'hidden'
+                    modal.style.display = 'block'
+                    setTimeout(() => {
+                        modal.classList.add('show')
+                    }, 10)
 
-                document.body.style.overflow = 'hidden'
-                modal.style.display = 'block'
-                setTimeout(() => {
-                    modal.classList.add('show')
-                }, 10)
+                }
             })
 
         })
@@ -34,13 +38,18 @@ export default function modal() {
         })
 
         modal.addEventListener('click', (e) => {
-            if(e.currentTarget == e.target || e.target.closest('.popup_close')) {
-                closeModal()
+            if(e.currentTarget == e.target || e.target.closest('.popup_close') || e.target.closest('.popup_calc_button') || e.target.closest('.popup_calc_profile_button') || e.target.closest('.popup_calc_btn-form')) {
+                
+                    closeModal()
+                
             }
         })
     }
 
     openModal('.popup_engineer_btn', '.popup_engineer')
     openModal('.phone_link', '.popup')
+    openModal('.popup_calc_button' , '.popup_calc_profile ')
+    openModal('.glazing_price_btn' , '.popup_calc')
+    openModal('.popup_calc_profile_button', '.popup_calc_end')
 
 }

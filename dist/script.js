@@ -13847,13 +13847,68 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
 /* harmony import */ var _js_modules_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/modules/modal */ "./src/js/modules/modal.js");
 /* harmony import */ var _js_modules_tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../js/modules/tabs */ "./src/js/modules/tabs.js");
+/* harmony import */ var _js_modules_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../js/modules/form */ "./src/js/modules/form.js");
+
 
 
 
 window.addEventListener('DOMContentLoaded', () => {
   Object(_js_modules_modal__WEBPACK_IMPORTED_MODULE_1__["default"])();
   Object(_js_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_js_modules_form__WEBPACK_IMPORTED_MODULE_3__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/modules/form.js":
+/*!********************************!*\
+  !*** ./src/js/modules/form.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return form; });
+function form() {
+  const forms = document.querySelectorAll('form');
+  const inputs = document.querySelectorAll('input');
+  const message = {
+    load: 'Загрузка...',
+    success: 'Спасибо!Мы скоро с вами свяжемся',
+    fail: 'Что-то пошло не так'
+  };
+  async function postData(url, data) {
+    document.querySelector('.status').textContent = message.load;
+    let result = await fetch(url, {
+      method: 'POST',
+      body: data
+    });
+    return result;
+  }
+  forms.forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      let statusMessage = document.createElement('div');
+      statusMessage.classList.add('status');
+      form.appendChild(statusMessage);
+      const formData = new FormData(form);
+      postData('/src/assets/server.php', formData).then(result => {
+        console.log(result);
+        statusMessage.textContent = message.success;
+      }).catch(() => {
+        statusMessage.textContent = message.fail;
+      }).finally(() => {
+        inputs.forEach(input => {
+          input.value = '';
+        });
+        setTimeout(() => {
+          statusMessage.remove();
+        }, 6000);
+      });
+    });
+  });
+}
 
 /***/ }),
 

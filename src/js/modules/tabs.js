@@ -29,6 +29,7 @@ export default function tabs () {
         
         hideContent()
         showContent()
+        
         target.addEventListener('click', (e) => {
 
             tabs.forEach((tab, i) => {

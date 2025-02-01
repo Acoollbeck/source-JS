@@ -1,6 +1,6 @@
 export default function tabs () {
 
-    function initTabs  (parentSelector, tabsSelector, contentSelector, activeClass) {
+    function initTabs  (parentSelector, tabsSelector, contentSelector, activeClass, display = 'block') {
         const target = document.querySelector(parentSelector)
         const tabs = document.querySelectorAll(tabsSelector)
         const content = document.querySelectorAll(contentSelector)
@@ -20,7 +20,7 @@ export default function tabs () {
 
         function showContent(i = 0) {
 
-            content[i].style.display = 'block'
+            content[i].style.display = display
             content[i].classList.add('animated', 'fadeIn')
             tabs[i].classList.add(activeClass)
 
@@ -45,5 +45,7 @@ export default function tabs () {
 
     initTabs('.glazing_slider', '.glazing_block', '.glazing_content', 'active')
     initTabs('.decoration_slider', '.no_click', '.internal, .external, .rising, .roof', 'after_click')
+    initTabs('.balcon_icons', '.balcon_icons_img', '.big_img img', 'do_image_more', 'inline-block')
+
 
 }

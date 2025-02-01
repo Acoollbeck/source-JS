@@ -1,21 +1,19 @@
-export default function form () {
+import { checkPhoneInputs, checkNameInputs } from "./checkInputs"
+import { closeModal } from "./modal"
+
+export default function form (objInformation) {
     
     const forms = document.querySelectorAll('form')
     const inputs = document.querySelectorAll('input')
+    const checkboxes = document.querySelectorAll('.checkbox')
+    const select = document.querySelector('select')
     const phoneInputs = document.querySelectorAll('input[name = "user_phone"]')
     const nameInputs = document.querySelectorAll('input[name = "user_name"]')
+    const popupCalcBtn  = document.querySelector('.popup_calc_button')
+    const popupCalcProfileBtn  = document.querySelector('.popup_calc_profile_button')
 
-    phoneInputs.forEach(item => {
-        item.addEventListener('input', () => {
-            item.value = item.value.replace(/\D/, '')
-        })
-    })
-
-    nameInputs.forEach(item => {
-        item.addEventListener('input', () => {
-            item.value = item.value.replace(/[^а-яА-ЯA-Za-zёЁ\s]/g, '')
-        })
-    })
+    checkPhoneInputs(phoneInputs)
+    checkNameInputs(nameInputs)
 
     const message = {
         load: 'Загрузка...',
@@ -51,10 +49,18 @@ export default function form () {
             form.appendChild(statusMessage)
 
             const formData = new FormData(form)
+
+            if(objInformation) {
+                for(let key in objInformation) {
+                    formData.append(key, objInformation[key])
+                }
+            }
+
             postData('assets/server.php', formData)
                 .then(response => {
                     console.log(response)
                     statusMessage.textContent = message.success
+                    setTimeout(() => closeModal('[data-form]'), 3000)
                 })
                 .catch((error) => {
                     console.error('Ошибка отправки данных:', error.message)
@@ -63,6 +69,15 @@ export default function form () {
                 .finally(() => {
                     inputs.forEach(input => {
                         input.value = ''
+                        checkboxes.forEach(checkbox => checkbox.checked = false)
+                        if(objInformation) {
+                            for(let key in objInformation) {
+                                if(key === 'glazingForm' || key === 'type') continue
+                                objInformation[key] = ''
+                            }
+                        }
+                        popupCalcBtn.disabled = true
+                        popupCalcProfileBtn.disabled = true
                     })
                     setTimeout(() => {
                         statusMessage.remove()

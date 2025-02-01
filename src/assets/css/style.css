@@ -943,33 +943,33 @@ textarea:focus {
 }
 
 
-
+/* 
 .balcon_icons_scale {
   transform: scale(1.4);
   cursor: pointer;
-}
+} */
 
 .popup_calc_content .big_img img {
   display: none;
   margin-bottom: 3rem;
   width: 30rem;
 }
-
+/* 
 .popup_calc_content .big_img img:first-child {
   display: inline-block;
   margin-bottom: 3rem;
   width: 30rem;
-}
+} */
 
 .popup_calc_content #type1 {
   display: inline-block;
 }
 
-/* .do_image_more img{
+.do_image_more img{
     width: 110px;
     height: 70px;
     cursor: pointer;
-  } */
+  }
 
 .popup_calc_close {
   position: absolute;

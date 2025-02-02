@@ -1,14 +1,31 @@
 export function closeModal(modalSelector) {
 
     const modal = document.querySelectorAll(modalSelector)
+
     modal.forEach(modal => {
         document.body.style.overflow = ''
+        document.body.style.marginRight = ''
         modal.classList.remove('show')
         setTimeout(() => {
             modal.style.display = 'none'
         }, 300)
     })
+}
 
+export function getScrollWidth () {
+    const scrollDiv = document.createElement('div')
+
+    scrollDiv.style.width = '50px'
+    scrollDiv.style.height = '50px'
+    scrollDiv.style.overflowY = 'scroll'
+    scrollDiv.style.visibility = 'hidden'
+    scrollDiv.style.position = 'absolute'
+    document.body.appendChild(scrollDiv)
+
+    let scrollWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth
+    scrollDiv.remove()
+
+    return scrollWidth
 }
 
 export default function modal() {
@@ -16,8 +33,8 @@ export default function modal() {
     function openModal (triggerSelector, modalSelector, closeModalOverlay = true) {
 
         const modal = document.querySelector(modalSelector)
-        let openedModal = false
-        
+        const scrollWidth = getScrollWidth()
+
         if(triggerSelector) {
             const trigger = document.querySelectorAll(triggerSelector)
 
@@ -28,6 +45,7 @@ export default function modal() {
                         e.preventDefault()
         
                         document.body.style.overflow = 'hidden'
+                        document.body.style.marginRight = `${scrollWidth}px`
                         modal.style.display = 'block'
                         setTimeout(() => {
                             modal.classList.add('show')
@@ -39,6 +57,7 @@ export default function modal() {
             })
         } else {
             document.body.style.overflow = 'hidden'
+            document.body.style.marginRight = `${scrollWidth}px`
             modal.style.display = 'block'
             setTimeout(() => {
                 modal.classList.add('show')
